@@ -1,8 +1,10 @@
 #viewport {
 	position: absolute;
 	height: 80%;
-	width: 95%;
-	overflow: hidden;
+	width: 75%;
+	overflow: default;
+	margin: 0;
+	padding: 0;
 }
 
 body {

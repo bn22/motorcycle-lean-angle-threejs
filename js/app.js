@@ -8,7 +8,7 @@
 		direction: null,
 		steering: 0
 	};
-	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, player;
+	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, player1;
 
 	function initScene() {
 		renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -56,7 +56,7 @@
 			.8, // high friction
 			.4 // low restitution
 		);
-		ground_geometry = new THREE.PlaneGeometry( 150, 50, 50, 50 );
+		ground_geometry = new THREE.PlaneGeometry( 50, 25, 50, 50 );
 
 		ground = new Physijs.HeightfieldMesh(
 			ground_geometry,
@@ -66,7 +66,7 @@
 			50
 		);
 
-		ground.position.set(-15, 0, -15);
+		ground.position.set(-25, -20, 10);
 
 		ground.rotation.x = Math.PI / -2;
 		ground.rotation.z = Math.PI / -4;
@@ -78,16 +78,6 @@
 			console.log("The Id of the other object is " + other_object);
 		});*/
 		scene.add( ground );
-
-		addPlayer(20);
-
-		//Straight Line
-		/*var geometry = new THREE.Geometry();
-		geometry.vertices.push(new THREE.Vector3(0, 2, 3));
-		geometry.vertices.push(new THREE.Vector3(20, 7, 9));
-		var material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 50 } );
-		var line = new THREE.Line(geometry, material);
-		scene.add(line); */
 
 		//Curved Line
 		var SUBDIVISIONS = 20;
@@ -121,9 +111,9 @@
 				console.log("Finish Game");
 			}
 		});*/
-		player.__dirtyPosition = true;
-		player.setAngularVelocity(new THREE.Vector3(0, 0, 0));
-	    player.setLinearVelocity(new THREE.Vector3(-6, 0, -6));
+		//player1.__dirtyPosition = true;
+		//player1.setAngularVelocity(new THREE.Vector3(0, 0, 0));
+	    //player1.setLinearVelocity(new THREE.Vector3(-6, 0, -6));
 		//player.applyCentralImpulse({x: -1, y: null, z: -1});
 
 		requestAnimationFrame( render );
@@ -132,7 +122,7 @@
 	};
 
 	function addPlayer(playerSpeed) {
-		player = new Physijs.BoxMesh(
+		/*player = new Physijs.BoxMesh(
 			new THREE.BoxGeometry( 4, 4, 4 ),
 			new THREE.MeshLambertMaterial(),
 			5,
@@ -143,7 +133,18 @@
 		player.rotation.x = Math.PI / -2;
 		player.rotation.z = Math.PI / 4;
 		player.material.color.setRGB( Math.random() * 100 / 100, Math.random() * 100 / 100, Math.random() * 100 / 100 );
-		scene.add(player);
+		scene.add(player);*/
+
+		var loader = new THREE.ObjectLoader();
+		loader.load("assets/motor.json",function ( player ) {
+ 			player.scale.x = 0.01;
+            player.scale.y = 0.01;
+            player.scale.z = 0.01;	
+            player.rotation.x = -100* Math.PI / 180;
+            player.rotation.z = 30* Math.PI / 180;
+    		player.position.set(5, 0, 30);	    
+            scene.add( player );
+		});
 	}
 	
 	window.onload = initScene();
