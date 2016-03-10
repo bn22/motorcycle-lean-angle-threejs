@@ -8,5 +8,11 @@
 }
 
 body {
-  background-color: lightblue;
+	font-family: 'Sniglet', cursive;
+  	background-color: lightblue;
+}
+
+h1{
+
+	font-family: 'Walter Turncoat', cursive;
 }

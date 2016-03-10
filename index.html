@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
-	<title>Physijs Test</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/lib/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link href='https://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  ,"HTML-CSS": { webFont: ["Gyre-Pagella"] }});
+</script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
 </head>
 <body>
-	<div id="viewport"></div>
-	<div id="viewport2"><div>
+<title>INFO 474 | Motorcycle lean angle calculator</title>
+<h1>Welcome to motorcycle lean angle calculator</h1>
+<div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <hr>
+    <h2>Hello {{yourName}}!</h2>
+</div>
 
-	<script src="js/three.js"></script>
-	<script src="js/physi.js"></script>
-	<script src="js/app.js"></script>
-	</body>
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4a} \over 2a}.$$
+<div id="viewport"></div>
+<div id="viewport2"></div>
+</body>
+
+
+
+<script src="js/lib/three.js"></script>
+<script src="js/lib/physi.js"></script>
+<script src="js/app.js"></script>
 </html>
