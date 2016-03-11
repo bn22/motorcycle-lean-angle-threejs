@@ -11,6 +11,7 @@
     <script src="js/lib/justgage.1.0.1.min.js"></script>
     <script src="js/lib/raphael.2.1.0.min.js"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/bootstrap-slider.min.js"></script>
+    <script src="js/lib/jaukia-zoomooz/jquery.zoomooz.min.js"></script>
 
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/css/bootstrap-slider.min.css" />
@@ -35,7 +36,6 @@
     <h4>Speed : {{speedMPH}} MPH </h4><input id="spd" data-slider-id='spdSld' ng-model="speedMPH" ng-init="speedMPH = '1'" type="text" data-slider-min="1" data-slider-max="200" data-slider-step="1" data-slider-value="1"/>
     <br>
     <h4>Radian : {{radianFeet}} ft </h4><input id="rad" data-slider-id='radSld' ng-model="radianFeet" ng-init="radianFeet = '1'" type="text" data-slider-min="1" data-slider-max="1000" data-slider-step="1" data-slider-value="1"/>
-
     <h2>Lean Angle: {{total()}} &#176;</h2>
     <hr>
     <div>
@@ -47,6 +47,15 @@
     <div>
         <h2>Lean Angle: $$\tan^{-1} {v^2 \over gR} = \theta $$</h2>
     </div>
+
+    <div class="zoomViewport demo">
+        <div class="zoomContainer">
+            <img id="curve5" class="zoomTarget" src="assets/curve5.png">
+            <img id="curve4" class="zoomTarget" src="assets/curve4.png">
+        </div>
+    </div>
+    <div class="zoomButton" data-type="prev" data-root=".demo"></div>
+    <div class="zoomButton" data-type="next" data-root=".demo"></div>
 
 
 </main>

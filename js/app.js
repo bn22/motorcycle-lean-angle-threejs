@@ -10,6 +10,13 @@ $('#rad').slider({
 
 });
 
+//$(document).ready(function() {
+//    $("#curve5").click(function(evt) {
+//        $(this).zoomTo({targetsize:0.7, duration:600});
+//        evt.stopPropagation();
+//    });
+//});
+
 var g = new JustGage({
     id: "gauge",
     value: 1,
