@@ -9,7 +9,7 @@
 
 body {
 	background-image: url("../assets/moto.jpg");
-		background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	font-family: 'Sniglet', cursive;
@@ -25,3 +25,9 @@ body {
 h1{
 	font-family: 'Walter Turncoat', cursive;
 }
+
+
+#spdSld .slider-handle {
+	background: red;
+}
+

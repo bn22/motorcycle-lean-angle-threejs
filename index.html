@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp" ng-controller="myCtrl">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/justgage.1.0.1.min.js"></script>
+    <script src="js/lib/raphael.2.1.0.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/bootstrap-slider.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/css/bootstrap-slider.min.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+
 
 
     <script type="text/x-mathjax-config">
@@ -21,27 +30,25 @@
 <main class="container-fluid">
     <title>INFO 474 | Motorcycle lean angle calculator</title>
     <h1>Welcome to motorcycle lean angle calculator</h1>
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="speed" placeholder="Enter a speed here">
-                <span class="input-group-addon">MPH</span>
-            </div>
-        </div>
-        <div class="col-lg-3">
-        <div class="input-group">
-            <input type="text" class="form-control" ng-model="radian" placeholder="Enter a corner radian here">
-            <span class="input-group-addon">Feet</span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
-
-<hr>
-    <h2>Speed: {{speed== null || speed == "" ? "0" : speed}} mph!</h2>
-    <h2>Radian: {{radian== null || radian == "" ? "0" : radian}} feet!</h2>
-    When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-    $$x = {-b \pm \sqrt{b^2-4a} \over 2a}.$$
     <hr>
+    <div id="gauge" class="200x160px pull-left"></div>
+    <h4>Speed : {{speedMPH}} MPH </h4><input id="spd" data-slider-id='spdSld' ng-model="speedMPH" ng-init="speedMPH = '1'" type="text" data-slider-min="1" data-slider-max="200" data-slider-step="1" data-slider-value="1"/>
+    <br>
+    <h4>Radian : {{radianFeet}} ft </h4><input id="rad" data-slider-id='radSld' ng-model="radianFeet" ng-init="radianFeet = '1'" type="text" data-slider-min="1" data-slider-max="1000" data-slider-step="1" data-slider-value="1"/>
+
+    <h2>Lean Angle: {{total()}} &#176;</h2>
+    <hr>
+    <div>
+        <h2>Friction formula: $$\mu = {v^2 \over gR}$$</h2>
+    </div>
+    <div>
+        <h2>Lean Angle formula : $$\tan \theta = \mu $$</h2>
+    </div>
+    <div>
+        <h2>Lean Angle: $$\tan^{-1} {v^2 \over gR} = \theta $$</h2>
+    </div>
+
+
 </main>
 <div id="viewport"></div>
 <div id="viewport2"></div>
@@ -49,7 +56,7 @@
 
 
 
-<script src="js/lib/three.js"></script>
+<script src="js/lib/Three.js"></script>
 <script src="js/lib/physi.js"></script>
 <script src="js/app.js"></script>
 </html>
