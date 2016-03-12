@@ -2,13 +2,8 @@
 	Physijs.scripts.worker = '/js/physijs_worker.js';
 	Physijs.scripts.ammo = '/js/ammo.js';
 
-	var angle = 0;
-	var car_physics = {
-		power: null,
-		direction: null,
-		steering: 0
-	};
-	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, player1;
+	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, frontMotor, backMotor;
+	var count = 0;
 
 	function initScene() {
 		renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -66,7 +61,7 @@
 			50
 		);
 
-		ground.position.set(-25, -20, 10);
+		ground.position.set(-15, 15, 5);
 
 		ground.rotation.x = Math.PI / -2;
 		ground.rotation.z = Math.PI / -4;
@@ -79,20 +74,7 @@
 		});*/
 		scene.add( ground );
 
-		//Curved Line
-		var SUBDIVISIONS = 20;
-		var geometry = new THREE.Geometry();
-		var curve = new THREE.QuadraticBezierCurve3();
-		curve.v0 = new THREE.Vector3(0, 1, 2.5);
-		curve.v1 = new THREE.Vector3(5, 2, 5);
-		curve.v2 = new THREE.Vector3(15, 3, 20);
-		for (var j = 0; j < SUBDIVISIONS; j++) {
-		   geometry.vertices.push( curve.getPoint(j / SUBDIVISIONS) )
-		}
-
-		var material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 100 } );
-		var line = new THREE.Line(geometry, material);
-		scene.add(line);
+		calculateLeanAngle(35.6, 114.8);
 
 		render();
 	};
@@ -115,36 +97,69 @@
 		//player1.setAngularVelocity(new THREE.Vector3(0, 0, 0));
 	    //player1.setLinearVelocity(new THREE.Vector3(-6, 0, -6));
 		//player.applyCentralImpulse({x: -1, y: null, z: -1});
+		$("#search").click(function() {
+			console.log(document.getElementById("speed").value);
+			console.log(document.getElementById("radian").value);
+		});
 
+                                                                                                                                                                                                                                                                                              
+		var loader = new THREE.ObjectLoader();
+		loader.load("assets/motor.json",function ( front ) {
+ 			front.scale.x = 0.04;
+            front.scale.y = 0.04;
+            front.scale.z = 0.04;	
+            front.rotation.x = (-80 + count) * Math.PI / 180;
+            front.rotation.z = (-140 - count) * Math.PI / 180;
+    		front.position.set(15, 18, 3);
+            scene.add( front );
+		});
+		count = count + 1;
+		
 		requestAnimationFrame( render );
 		renderer.render( scene, camera );
 		scene.simulate();
 	};
 
-	function addPlayer(playerSpeed) {
-		/*player = new Physijs.BoxMesh(
-			new THREE.BoxGeometry( 4, 4, 4 ),
-			new THREE.MeshLambertMaterial(),
-			5,
-			0,
-			0
-		)
-		player.position.set(20, 3, 20);
-		player.rotation.x = Math.PI / -2;
-		player.rotation.z = Math.PI / 4;
-		player.material.color.setRGB( Math.random() * 100 / 100, Math.random() * 100 / 100, Math.random() * 100 / 100 );
-		scene.add(player);*/
+	function addPlayer() {
+		/*var loader = new THREE.ObjectLoader();
+		loader.load("assets/motor.json",function ( front ) {
+ 			front.scale.x = 0.04;
+            front.scale.y = 0.04;
+            front.scale.z = 0.04;	
+            front.rotation.x = -80* Math.PI / 180;
+            front.rotation.z = -140* Math.PI / 180;
+    		front.position.set(15, 18, 3);
+    		frontMotor = front;
+    		console.log(frontMotor);
+            scene.add( frontMotor );
+		});*/
 
-		var loader = new THREE.ObjectLoader();
-		loader.load("assets/motor.json",function ( player ) {
- 			player.scale.x = 0.01;
-            player.scale.y = 0.01;
-            player.scale.z = 0.01;	
-            player.rotation.x = -100* Math.PI / 180;
-            player.rotation.z = 30* Math.PI / 180;
-    		player.position.set(5, 0, 30);	    
-            scene.add( player );
-		});
+		/*
+		loader.load("assets/motor.json",function ( back ) {
+ 			back.scale.x = 0.01;
+            back.scale.y = 0.01;
+            back.scale.z = 0.01;	
+            back.rotation.x = -80* Math.PI / 180;
+            back.rotation.z = 30* Math.PI / 180;
+    		back.position.set(-4, 18, 5);	
+    		backMotor = back
+            scene.add( backMotor );
+		});*/
 	}
+
+	function calculateLeanAngle(speed, radian) {
+		var friction = (Math.pow(speed, 2)) / (9.81 * radian);
+		var angle = Math.atan(friction);
+		//var radianToDegrees = (180 / Math.PI) * angle 
+	}
+
+	function convertToDegrees(radian) {
+		return (180 / Math.PI) * radian;
+	}
+
+	function convertToRadian(angle) {
+		return (Math.PI / 180) * angle;
+	}
+
 	
 	window.onload = initScene();
