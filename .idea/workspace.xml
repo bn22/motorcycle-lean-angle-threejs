@@ -2,10 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bdf45a-5ef9-4e90-8103-76e12a4a1808" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/curve4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/curve5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/track.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/README.markdown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/hierarchy/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/hierarchy/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/imagestack/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/imagestack/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/isometric/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/isometric/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rootchange/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rootchange/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rotate-bug-test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rotate-bug-test/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rotation/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/rotation/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/scrolling/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/scrolling/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/simple/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/simple/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/skew/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/skew/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/svgtree/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/svgtree/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/svgtree/tree.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/text/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/examples/text/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/jquery.zoomooz.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/jquery.zoomooz.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/GPL-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/create-thumbnails.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-anim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-zoomButton.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-zoomContainer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/jquery.zoomooz-zoomTarget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/purecssmatrix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/js/sylvester.src.stripped.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/src/webkit2png.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/chrome.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/ff.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/ie.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/opera.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/safari-iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/safari.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/hierarchy-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/imagestack-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/isometric-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/rootchange-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/simple-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/images/thumbnails/svgtree-clipped.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/website-assets/website.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jaukia-zoomooz/zoomooz.jquery.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/track.png" afterPath="$PROJECT_DIR$/assets/track.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
@@ -32,28 +85,28 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1111112">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.431373">
-              <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0456621">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75443786">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state vertical-scroll-proportion="-4.571429">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,8 +129,8 @@
       <list>
         <option value="$PROJECT_DIR$/js/lib/gage.js" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -87,10 +140,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="339" />
-    <option name="y" value="172" />
-    <option name="width" value="1927" />
-    <option name="height" value="1296" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -177,28 +228,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jaukia-zoomooz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="motorcycle-lean-angle-threejs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="motorcycle-lean-angle-threejs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -219,25 +248,26 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/startbootstrap-creative-1.0.2 2 copy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$/js/lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/js/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js/lib" />
+      <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -304,13 +334,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="339" y="172" width="1927" height="1296" extended-state="0" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20186819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2902344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3406683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -322,6 +351,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.116004296" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3406683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -335,6 +365,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -387,7 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7873755">
           <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -412,7 +465,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="27489" selection-start-line="11" selection-start-column="27489" selection-end-line="11" selection-end-column="27489" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
             <element signature="e#92171#92211#0" expanded="false" />
           </folding>
         </state>
@@ -423,26 +476,36 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/lib/jquery.qtip/imagesloaded.pkg.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.571429">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1111112">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.431373">
-          <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75443786">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0456621">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>

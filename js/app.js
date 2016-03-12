@@ -10,12 +10,14 @@ $('#rad').slider({
 
 });
 
-//$(document).ready(function() {
-//    $("#curve5").click(function(evt) {
-//        $(this).zoomTo({targetsize:0.7, duration:600});
-//        evt.stopPropagation();
-//    });
-//});
+$('#result').qtip({ // Grab some elements to apply the tooltip to
+    content: {
+        text: 'My common piece of text here'
+    },
+    style: {
+        classes: ' qtip-bootstrap'}
+})
+
 
 var g = new JustGage({
     id: "gauge",
@@ -28,7 +30,7 @@ var g = new JustGage({
         color : "#FF0000",
         lo : 0,
         hi : 200
-        }],
+    }],
     levelColorsGradient: false,
     titleFontColor:"#FFFFFF",
     titleFontFamily: "Sniglet",
