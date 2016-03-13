@@ -3,7 +3,6 @@
 	Physijs.scripts.ammo = '/js/ammo.js';
 
 	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, frontMotor, backMotor;
-	var count = 0;
 
 	function initScene() {
 		renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -96,70 +95,46 @@
 		//player1.__dirtyPosition = true;
 		//player1.setAngularVelocity(new THREE.Vector3(0, 0, 0));
 	    //player1.setLinearVelocity(new THREE.Vector3(-6, 0, -6));
-		//player.applyCentralImpulse({x: -1, y: null, z: -1});
-		$("#search").click(function() {
-			console.log(document.getElementById("speed").value);
-			console.log(document.getElementById("radian").value);
-		});
-
-                                                                                                                                                                                                                                                                                              
-		var loader = new THREE.ObjectLoader();
-		loader.load("assets/motor.json",function ( front ) {
- 			front.scale.x = 0.04;
-            front.scale.y = 0.04;
-            front.scale.z = 0.04;	
-            front.rotation.x = (-80 + count) * Math.PI / 180;
-            front.rotation.z = (-140 - count) * Math.PI / 180;
-    		front.position.set(15, 18, 3);
-            scene.add( front );
-		});
-		count = count + 1;
+		//player.applyCentralImpulse({x: -1, y: null, z: -1});  
 		
 		requestAnimationFrame( render );
 		renderer.render( scene, camera );
 		scene.simulate();
 	};
 
-	function addPlayer() {
-		/*var loader = new THREE.ObjectLoader();
+	$("#search").click(function() {
+		var speed = document.getElementById("speed").value
+		var radian = document.getElementById("radian").value
+		var lean = calculateLeanAngle(speed, radian);
+		var angle = convertToDegrees(lean);
+		var loader = new THREE.ObjectLoader();
+		document.getElementById("lean").innerHTML = Math.round(angle) + "\xB0";
+		
 		loader.load("assets/motor.json",function ( front ) {
- 			front.scale.x = 0.04;
-            front.scale.y = 0.04;
-            front.scale.z = 0.04;	
-            front.rotation.x = -80* Math.PI / 180;
-            front.rotation.z = -140* Math.PI / 180;
-    		front.position.set(15, 18, 3);
-    		frontMotor = front;
-    		console.log(frontMotor);
-            scene.add( frontMotor );
-		});*/
-
-		/*
-		loader.load("assets/motor.json",function ( back ) {
- 			back.scale.x = 0.01;
-            back.scale.y = 0.01;
-            back.scale.z = 0.01;	
-            back.rotation.x = -80* Math.PI / 180;
-            back.rotation.z = 30* Math.PI / 180;
-    		back.position.set(-4, 18, 5);	
-    		backMotor = back
-            scene.add( backMotor );
-		});*/
-	}
+ 			front.scale.x = 0.03;
+            front.scale.y = 0.03;
+            front.scale.z = 0.03;	
+            front.rotation.x = (-90 * Math.PI) / 180;
+            front.rotation.y = (1 * angle * Math.PI) / 180;
+            front.rotation.z = (-145 * Math.PI) / 180;
+    		front.position.set(20, 25, 3);
+            scene.add( front );
+		});
+		console.log(scene);
+	});	
 
 	function calculateLeanAngle(speed, radian) {
 		var friction = (Math.pow(speed, 2)) / (9.81 * radian);
-		var angle = Math.atan(friction);
-		//var radianToDegrees = (180 / Math.PI) * angle 
+		var answer = Math.atan(friction);
+		return answer;
 	}
 
-	function convertToDegrees(radian) {
-		return (180 / Math.PI) * radian;
+	function convertToDegrees(radians) {
+		return (radians * 180) / Math.PI
 	}
 
-	function convertToRadian(angle) {
-		return (Math.PI / 180) * angle;
+	function convertToAngle(angle) {
+		return (angle * Math.PI) / 180;
 	}
-
 	
 	window.onload = initScene();
