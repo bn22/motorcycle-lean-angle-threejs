@@ -10,8 +10,7 @@
 	var lean = 0;
 	var radian = 0;
 	var objectLoader;
-	var xResult = 0;
-	var zResult = 0;
+	var yResult = 0;
 	var prevAngle = 0;
 	var direction = 0;
 	var generated = false;
@@ -36,13 +35,15 @@
 			1,
 			750
 		);
-		camera.position.set( 30, 18, 30 );
+		//camera.position.set( 30, 18, 30 );
+		camera.position.set( 0, 0, 25 );
 		camera.lookAt( scene.position );
 		scene.add( camera );
 		
 		//Light
 		light = new THREE.DirectionalLight( 0xFFFFFF );
-		light.position.set( 20, 40, -15 );
+		light.position.set( 0, 0, 15 );
+		//light.position.set( 20, 40, -15 );
 		light.target.position.copy( scene.position );
 		light.castShadow = true;
 		light.shadowCameraLeft = -60;
@@ -68,15 +69,15 @@
 		if (created) {
 			for (var i = scene.children.length - 1; i >= 0 ; i -- ) {
 				if (scene.children[i].isMotorcycle) {
-					if ((scene.children[i].rotation.x > xResult - 0.05  && scene.children[i].rotation.x < xResult + 0.05) || (scene.children[i].rotation.z > zResult - 0.05  && scene.children[i].rotation.z < zResult + 0.05)) {
+					if ((scene.children[i].rotation.y > yResult - 0.05  && scene.children[i].rotation.y < yResult + 0.05)) {
 						created = false;
 					} 
 					if (direction == 0) {	
-						scene.children[i].rotation.x = scene.children[i].rotation.x + (xResult / 120); 
-						scene.children[i].rotation.z = scene.children[i].rotation.z + (xResult / 120); 	
+						scene.children[i].rotation.y = scene.children[i].rotation.y + (yResult / 120); 
+						console.log(scene.children[i].rotation.y);
 					} else if (direction == 1) {
-						scene.children[i].rotation.x = scene.children[i].rotation.x - (xResult / 120); 
-						scene.children[i].rotation.z = scene.children[i].rotation.z - (zResult / 120); 
+						scene.children[i].rotation.y = scene.children[i].rotation.y - (yResult / 120); 
+						console.log(scene.children[i].rotation.y);
 					}	
 				}
 			}
@@ -99,8 +100,8 @@
 				prevAngle = angle;
 				angle = convertToDegrees(lean);
 				objectLoader = new THREE.ObjectLoader();
-				xResult = lean / 2;
-				zResult = lean / 2;
+				//yResult = (180-angle) * Math.PI / 180;;
+				yResult = (angle) * Math.PI / 180;;
 				document.getElementById("lean").innerHTML = Math.round(angle) + "\xB0";
 
 				if (angle < prevAngle) {
@@ -111,16 +112,16 @@
 
 				if (!generated) {
 					generated = true;
-					objectLoader.load("assets/motortest5.json",function ( front ) {
+					//objectLoader.load("assets/motortest5.json",function ( front ) {
+					objectLoader.load("assets/motor.json",function ( front ) {
 						front.name = "Motorcycle";
 						front.scale.x = 0.03;
 				        front.scale.y = 0.03;
 				        front.scale.z = 0.03;
-			            //front.rotation.x = ((-1 * angle * Math.PI) / 180) / 3;
-				        //front.rotation.z = ((-1 * angle * Math.PI) / 180);
-				        //front.rotation.x = lean / 2;
-				        //front.rotation.z = lean / 2;
-				        front.position.set(-5, 22, 10);
+						front.rotation.x = -90 * Math.PI / 180;
+           				//front.rotation.y = (180-angle) * Math.PI / 180;
+	        			//front.rotation.y = (angle) * Math.PI / 180
+	        			front.position.set(0, 0, 0);
 				        front.isMotorcycle = true;
 			            scene.add( front );
 					});
