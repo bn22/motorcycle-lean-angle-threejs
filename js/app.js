@@ -5,31 +5,42 @@
 
 	var renderer, scene, camera, light, ground_material, ground_geometry, ground, render, loader, id;
 	var created = false;
+	var angle = 0;
+	var speed = 0;
+	var lean = 0;
+	var radian = 0;
+	var objectLoader;
+	var xResult = 0;
+	var zResult = 0;
+	var prevAngle = 0;
+	var direction = 0;
+	var generated = false;
 
 	function initScene() {
+		//Renderer
 		renderer = new THREE.WebGLRenderer( { alpha: true } );
 		renderer.setClearColor( 0x000000, 0 );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		renderer.shadowMap.enabled = true;
 		renderer.shadowMapSoft = true;
-
 		document.getElementById( 'viewport' ).appendChild( renderer.domElement );
-		
+
+		//Scene
 		scene = new Physijs.Scene({ fixedTimeStep: 1 / 120 });
 		scene.setGravity(new THREE.Vector3( 0, -30, 0 ));
-		
+
+		//Camera
 		camera = new THREE.PerspectiveCamera(
 			90,
 			window.innerWidth / window.innerHeight,
 			1,
 			750
 		);
-		//camera.position.set( 60, 50, 60 );
 		camera.position.set( 30, 18, 30 );
 		camera.lookAt( scene.position );
 		scene.add( camera );
 		
-		// Light
+		//Light
 		light = new THREE.DirectionalLight( 0xFFFFFF );
 		light.position.set( 20, 40, -15 );
 		light.target.position.copy( scene.position );
@@ -44,6 +55,8 @@
 		light.shadowMapWidth = light.shadowMapHeight = 2048;
 		light.shadowDarkness = .7;
 		scene.add( light );
+
+		//Generate
 		createGround();
 		render();
 	};
@@ -52,46 +65,68 @@
 
 	function render() {
 		id = requestAnimationFrame( render );
-		/*if (created) {
-			for (var i = 0; i < 5; i++) {
-				for ( i = scene.children.length - 1; i >= 0 ; i -- ) {
-					if (scene.children[i].isMotorcycle) {
-						scene.children[i].rotation.y = scene.children[i].rotation.y + 0.3;
-					}
+		if (created) {
+			for (var i = scene.children.length - 1; i >= 0 ; i -- ) {
+				if (scene.children[i].isMotorcycle) {
+					if ((scene.children[i].rotation.x > xResult - 0.05  && scene.children[i].rotation.x < xResult + 0.05) || (scene.children[i].rotation.z > zResult - 0.05  && scene.children[i].rotation.z < zResult + 0.05)) {
+						created = false;
+					} 
+					if (direction == 0) {	
+						scene.children[i].rotation.x = scene.children[i].rotation.x + (xResult / 120); 
+						scene.children[i].rotation.z = scene.children[i].rotation.z + (xResult / 120); 	
+					} else if (direction == 1) {
+						scene.children[i].rotation.x = scene.children[i].rotation.x - (xResult / 120); 
+						scene.children[i].rotation.z = scene.children[i].rotation.z - (zResult / 120); 
+					}	
 				}
 			}
-		}*/
+		}
 		renderer.render( scene, camera );
 		scene.simulate();
 	};
 
 	$("#search").click(function() {
-		created = true;
 		createMotorCycle();
+		created = true;
 	});	
 
 	function createMotorCycle() {
-		removeEntity();
+		speed = document.getElementById("speed").value;
+		radian = document.getElementById("radian").value;
+		if (speed != 0 && radian != 0) {
+			lean = calculateLeanAngle(speed, radian);
+			if (convertToDegrees(lean) != 0) {
+				prevAngle = angle;
+				angle = convertToDegrees(lean);
+				objectLoader = new THREE.ObjectLoader();
+				xResult = lean / 2;
+				zResult = lean / 2;
+				document.getElementById("lean").innerHTML = Math.round(angle) + "\xB0";
 
-		var speed = document.getElementById("speed").value;
-		var radian = document.getElementById("radian").value;
-		var lean = calculateLeanAngle(speed, radian);
-		var angle = convertToDegrees(lean);
-		var objectLoader = new THREE.ObjectLoader();
-		document.getElementById("lean").innerHTML = Math.round(angle) + "\xB0";
+				if (angle < prevAngle) {
+					direction = 1;
+				} else {
+					direction = 0;
+				}
 
-		objectLoader.load("assets/motortest5.json",function ( front ) {
-			front.name = "Motorcycle";
-			front.scale.x = 0.03;
-	        front.scale.y = 0.03;
-	        front.scale.z = 0.03;
-            front.rotation.x = ((-1 * angle * Math.PI) / 180) / 3;
-	        front.rotation.z = ((-1 * angle * Math.PI) / 180);
-	        front.position.set(-5, 22, 10);
-	        front.isMotorcycle = true;
-            scene.add( front );
-            animate(front);
-		});
+				if (!generated) {
+					generated = true;
+					objectLoader.load("assets/motortest5.json",function ( front ) {
+						front.name = "Motorcycle";
+						front.scale.x = 0.03;
+				        front.scale.y = 0.03;
+				        front.scale.z = 0.03;
+			            //front.rotation.x = ((-1 * angle * Math.PI) / 180) / 3;
+				        //front.rotation.z = ((-1 * angle * Math.PI) / 180);
+				        //front.rotation.x = lean / 2;
+				        //front.rotation.z = lean / 2;
+				        front.position.set(-5, 22, 10);
+				        front.isMotorcycle = true;
+			            scene.add( front );
+					});
+				}
+			}
+		}
 	}
 
 	function createGround() {
@@ -115,23 +150,6 @@
 		ground.receiveShadow = true;
 		ground.name = "floor";
 		scene.add( ground );
-	}
-
-	function removeEntity(){
-	    var obj, i;
-        for ( i = scene.children.length - 1; i >= 0 ; i -- ) {
-            obj = scene.children[ i ];
-            if (obj.isMotorcycle) {
-                scene.remove(obj);
-
-            }
-        }
-	}
-
-	function animate(scene) {
-		/*for(var i = 0; i < 5; i++) {
-			scene.children[0].rotation.y = scene.children[0].rotation.y + 0.2;
-		}*/
 	}
 
 	function calculateLeanAngle(speed, radian) {
