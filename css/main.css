@@ -1,4 +1,4 @@
-#viewport {
+#viewport, #renderCanvas {
 	position: absolute;
 	height: 80%;
 	width: 75%;
