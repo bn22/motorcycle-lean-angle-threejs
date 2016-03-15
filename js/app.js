@@ -94,7 +94,7 @@
 		radian = document.getElementById("radian").value;
 		if (speed != 0 && radian != 0) {
 			lean = calculateLeanAngle(speed, radian);
-			if (convertToDegrees(lean) != 0) {
+			//if (convertToDegrees(lean) != 0) {
 				prevAngle = angle;
 				angle = convertToDegrees(lean);
 				objectLoader = new THREE.ObjectLoader();
@@ -118,6 +118,7 @@
 				        front.scale.y = 0.03;
 				        front.scale.z = 0.03;
 						front.rotation.x = -90 * Math.PI / 180;
+						front.rotation.z = -180 * Math.PI / 180
            				//front.rotation.y = (180-angle) * Math.PI / 180;
 	        			//front.rotation.y = (angle) * Math.PI / 180
 	        			front.position.set(0, 0, 0);
@@ -125,7 +126,7 @@
 			            scene.add( front );
 					});
 				}
-			}
+			//}
 		}
 	}
 
@@ -166,16 +167,24 @@
 		return (angle * Math.PI) / 180;
 	}    
 
-	function calculateSpeedGraph(speed, radian) {
-		var speedLeanAngle = [];
-		for (var i = 0; i < 100; i++) {
-			var calculatedLeanAngle = calculateLeanAngle(parseInt(i), parseInt(radian));
-			var toAngle = convertToDegrees(calculatedLeanAngle)
-			console.log(toAngle);
-			speedLeanAngle.push(toAngle);
+	function calculateRadianGraph(speed, radian) {
+		var radianArray = [];
+		for (var i = 0; i < 300; i++) {
+			var radianLeanAngle = calculateLeanAngle(parseInt(speed), parseInt(i));
+			var radianAngle = convertToDegrees(radianLeanAngle)
+			radianArray.push(radianAngle);
 		}
-		console.log(speedLeanAngle);
-		drawGraph(speedLeanAngle);
+		drawGraph(radianArray);
+	}
+
+	function calculateSpeedGraph(speed, radian) {
+		var speedArray = [];
+		for (var i = 0; i < 300; i++) {
+			var speedLeanAngle = calculateLeanAngle(parseInt(i), parseInt(radian));
+			var speedAngle = convertToDegrees(speedLeanAngle)
+			speedArray.push(speedAngle);
+		}
+		drawGraph(speedArray);
 	}
 
 	function drawGraph(data) {
@@ -233,5 +242,11 @@
 	      .call(yAxisLeft);
 	
 		graph.append("svg:path").attr("d", line(data));
-			
+
+		var tooltip = d3.select("body")
+		.append("div")
+		.style("position", "absolute")
+		.style("z-index", "10")
+		.style("visibility", "hidden")
+		.text("a simple tooltip");		
 	}
