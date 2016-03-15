@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html ng-app>
 <head>
+    <meta charset="utf-8">
+    <meta content="utf-8" http-equiv="encoding">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
@@ -48,12 +50,12 @@
 
 <div id="viewport"></div>
 <div id="viewport2"></div>
-<canvas id="renderCanvas"></canvas>
+<svg id="graph" width="1000" height="500"></svg>
 </body>
-
 
 <script src="js/lib/three.js"></script>
 <script src="js/lib/physi.js"></script>
+<script src="js/lib/d3.min.js"></script>
 <script src="js/lib/babylon.js"></script>
 <script src="js/lib/cannon.js"></script>
 <script src="js/lib/oimo.js"></script>

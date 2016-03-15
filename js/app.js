@@ -74,10 +74,8 @@
 					} 
 					if (direction == 0) {	
 						scene.children[i].rotation.y = scene.children[i].rotation.y + (yResult / 120); 
-						console.log(scene.children[i].rotation.y);
 					} else if (direction == 1) {
 						scene.children[i].rotation.y = scene.children[i].rotation.y - (yResult / 120); 
-						console.log(scene.children[i].rotation.y);
 					}	
 				}
 			}
@@ -103,6 +101,7 @@
 				//yResult = (180-angle) * Math.PI / 180;;
 				yResult = (angle) * Math.PI / 180;;
 				document.getElementById("lean").innerHTML = Math.round(angle) + "\xB0";
+				calculateSpeedGraph(speed, radian);
 
 				if (angle < prevAngle) {
 					direction = 1;
@@ -137,7 +136,7 @@
 			.8, // high friction
 			.4 // low restitution
 		);
-		ground_geometry = new THREE.PlaneGeometry( 50, 25, 50, 50 );
+		ground_geometry = new THREE.PlaneGeometry( 20, 20, 50, 50 );
 		ground = new Physijs.HeightfieldMesh(
 			ground_geometry,
 			ground_material,
@@ -145,9 +144,9 @@
 			50,
 			50
 		);
-		ground.position.set(-15, 17, 5);
-		ground.rotation.x = Math.PI / -2;
-		ground.rotation.z = Math.PI / -4;
+		ground.position.set(0, -3, 0);
+		ground.rotation.x = -Math.PI / 3;
+		ground.rotation.z = Math.PI / -2;
 		ground.receiveShadow = true;
 		ground.name = "floor";
 		scene.add( ground );
@@ -166,3 +165,73 @@
 	function convertToAngle(angle) {
 		return (angle * Math.PI) / 180;
 	}    
+
+	function calculateSpeedGraph(speed, radian) {
+		var speedLeanAngle = [];
+		for (var i = 0; i < 100; i++) {
+			var calculatedLeanAngle = calculateLeanAngle(parseInt(i), parseInt(radian));
+			var toAngle = convertToDegrees(calculatedLeanAngle)
+			console.log(toAngle);
+			speedLeanAngle.push(toAngle);
+		}
+		console.log(speedLeanAngle);
+		drawGraph(speedLeanAngle);
+	}
+
+	function drawGraph(data) {
+		// define dimensions of graph
+		var m = [80, 80, 80, 80]; // margins
+		var w = 1000 - m[1] - m[3]; // width
+		var h = 400 - m[0] - m[2]; // height
+
+		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
+		var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+		var line = d3.svg.line()
+			.x(function(d, i) { 
+				return x(i); 
+			})
+			.y(function(d) { 
+				return y(d); 
+			})
+
+		var graph = d3.select("#graph").append("svg:svg")
+	      .attr("width", w + m[1] + m[3])
+	      .attr("height", h + m[0] + m[2])
+	      .append("svg:g")
+	      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+		var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+
+		graph.append("svg:g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + h + ")")
+	      .call(xAxis);
+
+     	graph.append("text")     
+          .attr("x",  w/2)
+          .attr("y",  h + m[0] / 2)
+          .style("text-anchor", "middle")
+          .text("Speed (mph");
+
+	    graph.append("text")     
+	      .attr("x",  0)
+	      .attr("y",  h / 2)
+	      .style("text-anchor", "middle")
+	      .text("Lean Angle (\xB0)");
+
+	      graph.append("text")     
+	      .attr("x",  w / 2)
+	      .attr("y",  0)
+	      .style("text-anchor", "middle")
+	      .text("Speed vs Lean Angle");
+
+		var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+		graph.append("svg:g")
+	      .attr("class", "y axis")
+	      .attr("transform", "translate(-25,0)")
+	      .call(yAxisLeft);
+	
+		graph.append("svg:path").attr("d", line(data));
+			
+	}
